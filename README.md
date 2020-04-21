@@ -1,2 +1,4 @@
-# game_0f_life
-Implementation of the game of life in c++ with parallel programming.
+# Assignment for the parallel and distributed system exam
+### Parallel version of game of life using pthread and oepnMP.
+### Parallel version of finding primes in range with fast flow
+
