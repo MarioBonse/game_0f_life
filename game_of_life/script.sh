@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# script for evalating 
 rm par.txt parfor.txt seq.txt
 g++ -o parfor game_of_life_parallelfor.cpp -O3 -fopenmp
 g++ -o par game_of_life_thread.cpp -O3 -pthread
