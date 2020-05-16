@@ -14,6 +14,42 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 
+struct image_with_name
+{
+    cv::Mat img;
+    std::string name;
+};
+
+queue<std:;vector<std::pair<name, name_to_write>*> to_reader;
+queue<std::vector<image_with_name>*> to_gaussian, to_sobel, to_writer;
+
+
+cv::Mat emitter(std::vector<strin> img_names, std::string dest_path, int iterations = 1){
+    for(int i = 0; i< iterations; i++){
+        emitter.push(img_names, dest_path + img_names + std::string(i));
+    }
+
+}
+
+cv::Mat load_img(std::strin name, std::string dest){
+    cv::Mat image = cv::imread(path + images_name[1]);
+    first_stage.push(image, dest);
+}
+
+cv::Mat smooth_step(cv::Mat img, std::string name){
+    cv::GaussianBlur(img, img, cv::Size(3, 3), 0, 0, BORDER_DEFAULT);
+    second_stage.push_back(img, name);
+}
+
+cv::Mat sobol_step(cv::Mat img, std::string name){
+    cv::Sobel( img,img, ddepth, 1, 0, 3, scale, delta, BORDER_DEFAULT );
+    second_stage.push_back(img, name);
+}
+
+void write(cv::Mat img, std::string name){
+    cv::imwrite(name, img);
+
+}
 
 bool is_number(const std::string& s)
 {
@@ -61,7 +97,7 @@ int main(int argc, char * argv[]) {
     // read one image from disk from disk
     auto start = std::chrono::high_resolution_clock::now();
     for(auto img: images_name)
-        imgages.push_back(cv::imread(path + img));   // Read the file
+        imgages.push_back(cv::imread(path + images_name[1]));   // Read the file
     auto elapsed = std::chrono::high_resolution_clock::now() - start;
     auto usec    = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
     std::cout <<"read took: "<< usec << std::endl;

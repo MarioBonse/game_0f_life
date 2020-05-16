@@ -1,0 +1,24 @@
+I run an experiment(stages_time) in order to understand the timing of each step.
+On my laptop, with 8 core and ssd: (for 30 files)
+read: 572 ms
+GaussianBlur: 062ms
+Sobel: 290ms
+write: 316ms
+total: 1.1s
+
+Approaches
+I figured out two possible approaches: 
+    1: use a pipeline. If we do so we have to use more than one process for the read stage 
+        because is the slower one, it takes half of the time. 
+        In only one iteration (thus 30 images) 
+        
+    2: Use a farm or a paralel for. Since one stage of the pipeline takes half of the time could be 
+    smart just to use a farm or a parallel for(since we don't need a drain).
+
+Resuts:
+    1: 
+
+    2: Parallel for. I used openmp and i reached on my laptop a speedup of 4 with 8 workers.
+    Since the time has low variance I decided to use static scheduling. However experiment with different 
+    scheduling didn't change the performance.
+

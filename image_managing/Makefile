@@ -38,11 +38,13 @@ CXX		= g++ -std=c++17
 INCLUDES	= -I $(OPENCV) 
 CXXFLAGS  	= -g # -DBLOCKING_MODE -DFF_BOUNDED_BUFFER
 
-LDFLAGS 	= -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -lopencv_highgui
+LDFLAGS 	= -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -lopencv_highgui -fopenmp
 OPTFLAGS	= -O3 -finline-functions -DNDEBUG
 
 TARGETS		= stages_time     \
 		  load_display_img \
+		  sequential \
+		  opmp_parfor
 
 
 .PHONY: all clean cleanall
