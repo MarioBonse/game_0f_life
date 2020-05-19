@@ -30,6 +30,12 @@ ifndef FF_ROOT
 FF_ROOT		= ${HOME}/fastflow
 endif
 
+LDFLAGS 	= -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -fopenmp
+ifdef SERVER
+LIBRARY = "/home/marcod/opencv4/lib"
+LDFLAGS 	= $(LIBRARY) -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -fopenmp
+endif
+
 ifndef OPENCV
 OPENCV = /usr/local/include/opencv4/
 endif
@@ -38,7 +44,7 @@ CXX		= g++ -std=c++17
 INCLUDES	= -I $(OPENCV) 
 CXXFLAGS  	= -g # -DBLOCKING_MODE -DFF_BOUNDED_BUFFER
 
-LDFLAGS 	= -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -fopenmp
+LDFLAGS 	= $(LIBRARY) -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -fopenmp
 OPTFLAGS	= -O3 -finline-functions -DNDEBUG
 
 TARGETS		= stages_time     \

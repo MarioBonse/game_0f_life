@@ -71,7 +71,7 @@ int main(int argc, char * argv[]) {
         for(int i = 0; i<number_images; i++)
             images_name_repeated[j*number_images + i] = images_name[i];
     }
-    #pragma omp parallel for num_threads(nw) schedule(dynamic)
+    #pragma omp parallel for num_threads(nw) schedule(static, 1)
     for(i = 0; i<images_name_repeated.size(); i++){
             std::string read = path + images_name_repeated[i];
             
