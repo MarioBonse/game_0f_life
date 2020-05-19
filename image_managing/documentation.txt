@@ -30,3 +30,6 @@ Resuts:
     Since the time has low variance I decided to use static scheduling. However experiment with different 
     scheduling didn't change the performance.
 
+
+On the server for 3 iterations we had a sequential time of 20s 
+With 30 thread we achieved 1,27s!
