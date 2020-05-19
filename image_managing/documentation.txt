@@ -1,5 +1,6 @@
 I run an experiment(stages_time) in order to understand the timing of each step.
-On my laptop, with 8 core and ssd: (for 30 files)
+(!for 30 files!)
+On my laptop: 
 read: 572 ms
 GaussianBlur: 062ms
 Sobel: 290ms
@@ -8,10 +9,10 @@ total: 1.1s
 
 
 ON THE SERVER 
-read took: 2226343
-Gaussian filter took: 376095
-Sobel filter took: 1161595
-write took: 1379258
+read took: 2.2s
+Gaussian filter took: 0.370s
+Sobel filter took: 1.12
+write took: 1.3s
 
 
 Approaches
@@ -24,12 +25,8 @@ I figured out two possible approaches:
     smart just to use a farm or a parallel for(since we don't need a drain).
 
 Resuts:
-    1: 
+    I decided to use a farm implemented with a parallel for. I used openmp parallel for with 
+    schedule (dynamic, 1). In order to be able to acheave the maximum degree of parallelization 
+    I did 9 iterations (so we read,filter write 30*9 files = 270)
 
-    2: Parallel for. I used openmp and i reached on my laptop a speedup of 4 with 8 workers.
-    Since the time has low variance I decided to use static scheduling. However experiment with different 
-    scheduling didn't change the performance.
-
-
-On the server for 3 iterations we had a sequential time of 20s 
-With 30 thread we achieved 1,27s!
+sequential time: 64.110 ms = 64s
