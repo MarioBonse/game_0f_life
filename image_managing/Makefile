@@ -42,9 +42,8 @@ LDFLAGS 	= -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -lopencv_highgui -f
 OPTFLAGS	= -O3 -finline-functions -DNDEBUG
 
 TARGETS		= stages_time     \
-		  load_display_img \
-		  sequential \
-		  opmp_parfor
+		    sequential \
+		    opmp_parfor
 
 
 .PHONY: all clean cleanall

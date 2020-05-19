@@ -6,6 +6,14 @@ Sobel: 290ms
 write: 316ms
 total: 1.1s
 
+
+ON THE SERVER 
+read took: 2226343
+Gaussian filter took: 376095
+Sobel filter took: 1161595
+write took: 1379258
+
+
 Approaches
 I figured out two possible approaches: 
     1: use a pipeline. If we do so we have to use more than one process for the read stage 
